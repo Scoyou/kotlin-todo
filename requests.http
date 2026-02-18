@@ -1,0 +1,83 @@
+### GET all todos
+
+GET localhost:8080/todos
+
+
+### GET Todo by ID
+
+GET localhost:8080/todos/22fca26a-7e98-40d1-a736-63bdceff2b2b
+
+### POST todo
+
+POST localhost:8080/todos
+Content-Type: application/json
+
+{
+      "title": "Goodbye",
+      "description": "Say goodbye",
+      "status": "OPEN"
+}
+
+### PUT Update todo
+
+PUT localhost:8080/todos/22fca26a-7e98-40d1-a736-63bdceff2b2b
+Content-Type: application/json
+
+{
+    "status": "DONE"
+}
+
+### DELETE Destroy todo
+
+DELETE localhost:8080/todos/5b27ffbb-4b85-4d79-a8d5-61301d7b0b2a
+
+### POST create user
+
+POST localhost:8080/users
+Content-Type: application/json
+
+{
+  "username": "user1",
+  "password": "12345"
+}
+
+### GET get users
+
+GET localhost:8080/users
+
+### GET get user
+
+GET localhost:8080/users/b1fba5ce-6194-42c7-997b-8eb49f1cc56f
+
+### GET user todos
+
+GET localhost:8080/users/b1fba5ce-6194-42c7-997b-8eb49f1cc56f/todos
+
+### Create assignment
+
+POST localhost:8080/assignments
+Content-Type: application/json
+
+{
+    "userId": "b1fba5ce-6194-42c7-997b-8eb49f1cc56f",
+    "todoId": "22fca26a-7e98-40d1-a736-63bdceff2b2b"
+  }
+
+### Get assignments
+
+GET localhost:8080/b1fba5ce-6194-42c7-997b-8eb49f1cc56f/assignments
+
+### Get todo subtasks
+
+GET localhost:8080/todos/22fca26a-7e98-40d1-a736-63bdceff2b2b/sub-tasks
+
+### Create todo subtask
+
+POST localhost:8080/todos/22fca26a-7e98-40d1-a736-63bdceff2b2b/sub-tasks
+Content-Type: application/json
+
+{
+  "title": "sub task",
+  "description": "a sub task",
+  "status": "OPEN"
+}
