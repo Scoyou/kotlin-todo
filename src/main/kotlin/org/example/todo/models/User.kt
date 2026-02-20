@@ -4,10 +4,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore
 import jakarta.persistence.*
 import org.example.todo.dtos.UserDTO
 import org.hibernate.annotations.UuidGenerator
+import kotlin.time.ExperimentalTime
+import kotlin.time.Instant
 
 @Entity
 @Table(name = "users")
-class User(
+open class User(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @UuidGenerator
@@ -15,6 +17,9 @@ class User(
     val id: String? = null,
     val username: String,
     val password: String,
+    firstName: String?,
+    lastName: String?,
+
     @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = [CascadeType.ALL], orphanRemoval = true)
     val assignments: MutableSet<Assignment> = mutableSetOf(),

@@ -1,6 +1,7 @@
 package org.example.todo.services
 
 import org.example.todo.dtos.TodoDTO
+import org.example.todo.dtos.UserDTO
 import org.example.todo.models.User
 import org.example.todo.models.toDTO
 import org.example.todo.repositories.UserRepository
@@ -13,4 +14,5 @@ class UserService(private val repository: UserRepository) {
     fun save(user: User): User = repository.save(user)
     fun destroy(id: String) = repository.deleteById(id)
     fun getUserTodos(user: User): List<TodoDTO> = user.todos.map { it.toDTO() }
+    fun search(q: String): List<UserDTO> = repository.findByUsernameLike("%$q%").map { it.toDTO() }
 }

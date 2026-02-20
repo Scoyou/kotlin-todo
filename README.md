@@ -18,6 +18,8 @@ A Kotlin + Spring Boot REST API for managing todos, users, and user-to-todo assi
 - Assign todos to users
 - Query todos by user
 - Query assignments by user
+- Search users and todos
+- Filter todos by status
 
 ## Prerequisites
 
@@ -120,6 +122,30 @@ curl -X POST http://localhost:8080/assignments \
     "userId": "<user-id>",
     "todoId": "<todo-id>"
   }'
+```
+
+### Search endpoints
+
+- `GET /search/users?q={query}` - search users by username
+- `GET /search/todos?q={query}` - search todos by title or description (SQL `LIKE` pattern)
+- `GET /search/todos/{status}` - list todos by status (`OPEN`, `IN_PROGRESS`, `DONE`)
+
+Search users example:
+
+```bash
+curl "http://localhost:8080/search/users?q=user"
+```
+
+Search todos by text example:
+
+```bash
+curl "http://localhost:8080/search/todos?q=%25ship%25"
+```
+
+Search todos by status example:
+
+```bash
+curl "http://localhost:8080/search/todos/open"
 ```
 
 ## DTO Shapes

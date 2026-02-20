@@ -14,7 +14,7 @@ enum class TodoStatus {
 
 @Entity
 @Table(name = "todos")
-class Todo(
+open class Todo(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @UuidGenerator

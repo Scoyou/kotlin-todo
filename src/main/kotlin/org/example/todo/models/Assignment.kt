@@ -6,7 +6,7 @@ import org.hibernate.annotations.UuidGenerator
 
 @Entity
 @Table(name = "assignments")
-class Assignment(
+open class Assignment(
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @UuidGenerator

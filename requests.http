@@ -81,3 +81,15 @@ Content-Type: application/json
   "description": "a sub task",
   "status": "OPEN"
 }
+
+### GET search users
+
+GET localhost:8080/search/users?q=use
+
+### Search todos
+
+GET localhost:8080/search/todos?q=say
+
+### Search todos by status
+
+GET localhost:8080/search/todos/open
